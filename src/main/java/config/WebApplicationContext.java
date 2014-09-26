@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @EnableWebMvc
 @ComponentScan(basePackages =
 {
-    "rugal.sample.controller"
+        "learning.candystore.controller"
 })
 public class WebApplicationContext extends WebMvcConfigurerAdapter
 {

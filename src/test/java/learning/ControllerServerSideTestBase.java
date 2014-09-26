@@ -1,4 +1,4 @@
-package rugal;
+package learning;
 
 import org.junit.Before;
 import org.junit.Ignore;

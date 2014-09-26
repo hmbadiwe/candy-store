@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
     {
         "classpath:jdbc.properties"
     })
-@ComponentScan(value = "rugal")
+@ComponentScan(value = "learning")
 public class ApplicationContext
 {
 

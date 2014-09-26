@@ -1,11 +1,11 @@
-package rugal.sample.core.dao.impl;
+package learning.candystore.core.dao.impl;
 
-import ml.rugal.sshcommon.page.Pagination;
+import com.learning.candystore.core.dao.CandyDao;
+import com.learning.candystore.core.entity.Candy;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import rugal.JUnitSpringTestBase;
-import rugal.sample.core.dao.StudentDao;
-import rugal.sample.core.entity.Student;
+import learning.JUnitSpringTestBase;
+
 
 /**
  *
@@ -15,38 +15,31 @@ public class CandyDaoImplTest extends JUnitSpringTestBase
 {
 
     @Autowired
-    private StudentDao studentDao;
+    private CandyDao candyDao;
 
     public CandyDaoImplTest()
     {
     }
 
-//    @Test
-    public void testGetPage()
-    {
-        System.out.println("getPage");
-        int pageNo = 0;
-        int pageSize = 0;
-        Pagination result = studentDao.getPage(pageNo, pageSize);
-    }
+
 
     @Test
     public void testFindById()
     {
         System.out.println("findById");
         Integer id = 1;
-        Student result = studentDao.findById(id);
+        Candy result = candyDao.findById(id);
     }
 
 //    @Test
     public void testSave()
     {
         System.out.println("save");
-        Student bean = new Student();
+        Candy bean = new Candy();
         bean.setId(1);
         bean.setAge(23);
         bean.setName("Rugal Bernstein");
-        Student result = studentDao.save(bean);
+        Integer result = candyDao.save(bean);
     }
 
 //    @Test
@@ -54,7 +47,7 @@ public class CandyDaoImplTest extends JUnitSpringTestBase
     {
         System.out.println("deleteById");
         Integer id = 1;
-        Student result = studentDao.deleteById(id);
+        Candy result = candyDao.deleteById(id);
     }
 
 }

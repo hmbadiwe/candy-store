@@ -23,10 +23,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value = "/student")
-public class StudentAction
+public class CandyAction
 {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StudentAction.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(CandyAction.class.getName());
 
     @Autowired
     private CandyService candyService;

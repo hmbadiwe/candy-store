@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package rugal.sample.controller;
+package learning.candystore.controller;
 
 import java.util.HashMap;
+
+import com.learning.candystore.controller.CandyAction;
+import com.learning.candystore.core.entity.Candy;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +26,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
-import rugal.ControllerServerSideTestBase;
-import rugal.sample.core.entity.Student;
+import learning.ControllerServerSideTestBase;
 
 /**
  *
@@ -34,7 +36,7 @@ public class CandyActionServerSideTest extends ControllerServerSideTestBase
 {
 
     @Autowired
-    private StudentAction studentAction;
+    private CandyAction candyAction;
 
     @Test
     @Ignore
@@ -48,13 +50,13 @@ public class CandyActionServerSideTest extends ControllerServerSideTestBase
         request.setContent(json.getBytes());
         Class<?>[] parameterTypes = new Class<?>[]
         {
-            Student.class
+            Candy.class
         };
         ModelAndView mv = null;
         try
         {
             mv = handlerAdapter
-                .handle(request, response, new HandlerMethod(studentAction, "registerStudent", parameterTypes));
+                .handle(request, response, new HandlerMethod(candyAction, "registerStudent", parameterTypes));
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -78,7 +80,7 @@ public class CandyActionServerSideTest extends ControllerServerSideTestBase
         try
         {
             mv = handlerAdapter
-                .handle(request, response, new HandlerMethod(studentAction, "retrieve", parameterTypes));
+                .handle(request, response, new HandlerMethod(candyAction, "retrieve", parameterTypes));
         } catch (Exception ex)
         {
             ex.printStackTrace();

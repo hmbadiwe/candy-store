@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package rugal.sample.core.service.impl;
+package learning.candystore.core.service.impl;
 
+import com.learning.candystore.core.entity.Candy;
+import com.learning.candystore.core.service.CandyService;
+import com.learning.candystore.core.service.impl.CandyServiceImpl;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import rugal.JUnitSpringTestBase;
-import rugal.sample.core.entity.Student;
-import rugal.sample.core.service.StudentService;
+import learning.JUnitSpringTestBase;
+
 
 /**
  *
@@ -30,7 +32,7 @@ public class CandyServiceImplTest extends JUnitSpringTestBase
 {
 
     @Autowired
-    private StudentService studentService;
+    private CandyService studentService;
 
     public CandyServiceImplTest()
     {
@@ -41,9 +43,9 @@ public class CandyServiceImplTest extends JUnitSpringTestBase
     {
         System.out.println("deleteById");
         Integer id = null;
-        StudentServiceImpl instance = new StudentServiceImpl();
-        Student expResult = null;
-        Student result = studentService.deleteById(id);
+        CandyServiceImpl instance = new CandyServiceImpl();
+        Candy expResult = null;
+        Candy result = studentService.deleteById(id);
     }
 
     @Test
@@ -60,7 +62,7 @@ public class CandyServiceImplTest extends JUnitSpringTestBase
     public void testSave()
     {
         System.out.println("save");
-        Student bean = new Student();
+        Candy bean = new Candy();
         bean.setId(2);
         bean.setAge(132);
         bean.setName("Rugal");

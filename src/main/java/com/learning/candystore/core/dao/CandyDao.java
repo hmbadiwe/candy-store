@@ -1,9 +1,7 @@
 package  com.learning.candystore.core.dao;
 
 import com.learning.candystore.core.entity.Candy;
-import ml.rugal.sshcommon.hibernate.Updater;
-import ml.rugal.sshcommon.page.Pagination;
-import rugal.sample.core.entity.Student;
+
 
 /**
  *

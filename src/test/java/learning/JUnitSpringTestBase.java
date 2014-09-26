@@ -1,4 +1,4 @@
-package rugal;
+package learning;
 
 import org.junit.Ignore;
 import org.junit.runner.RunWith;

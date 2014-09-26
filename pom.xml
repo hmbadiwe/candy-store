@@ -283,13 +283,6 @@
             <version>${jackson-2-version}</version>
             <scope>runtime</scope>
         </dependency>
-        <!-- spring web mvc stop -->
-        <!-- Auto Append -->
-        <dependency>
-            <groupId>ml.rugal</groupId>
-            <artifactId>ssh-common</artifactId>
-            <version>0.1</version>
-        </dependency>
     </dependencies>
     <build>
         <pluginManagement>

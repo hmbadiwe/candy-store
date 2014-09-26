@@ -3,8 +3,6 @@ package  com.learning.candystore.core.service.impl;
 import com.learning.candystore.core.dao.CandyDao;
 import com.learning.candystore.core.entity.Candy;
 import com.learning.candystore.core.service.CandyService;
-import ml.rugal.sshcommon.hibernate.Updater;
-import ml.rugal.sshcommon.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

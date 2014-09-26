@@ -1,13 +1,15 @@
-package rugal.sample.controller;
+package learning.candystore.controller;
 
+import com.learning.candystore.common.SweetMessage;
+import com.learning.candystore.controller.CandyAction;
+import com.learning.candystore.core.entity.Candy;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import rugal.ControllerClientSideTestBase;
-import rugal.sample.common.Message;
-import rugal.sample.core.entity.Student;
+import learning.ControllerClientSideTestBase;
+
 
 /**
  *
@@ -17,7 +19,7 @@ public class CandyActionTest extends ControllerClientSideTestBase
 {
 
     @Autowired
-    private StudentAction studentAction;
+    private CandyAction candyAction;
 
     public CandyActionTest()
     {
@@ -39,10 +41,10 @@ public class CandyActionTest extends ControllerClientSideTestBase
     {
         System.out.println("updateStudentProfile");
         Integer id = null;
-        Student bean = null;
-        StudentAction instance = new StudentAction();
-        Message expResult = null;
-        Message result = instance.updateStudentProfile(id, bean);
+        Candy bean = null;
+        CandyAction instance = new CandyAction();
+        SweetMessage expResult = null;
+        SweetMessage result = instance.updateStudentProfile(id, bean);
     }
 
 //    @Test
@@ -50,9 +52,9 @@ public class CandyActionTest extends ControllerClientSideTestBase
     {
         System.out.println("cancelOrder");
         Integer id = null;
-        StudentAction instance = new StudentAction();
-        Message expResult = null;
-        Message result = instance.deregister(id);
+        CandyAction instance = new CandyAction();
+        SweetMessage expResult = null;
+        SweetMessage result = instance.deregister(id);
     }
 
 //    @Test
@@ -60,9 +62,9 @@ public class CandyActionTest extends ControllerClientSideTestBase
     {
         System.out.println("retrieve");
         Integer id = null;
-        StudentAction instance = new StudentAction();
-        Message expResult = null;
-        Message result = instance.retrieve(id);
+        CandyAction instance = new CandyAction();
+        SweetMessage expResult = null;
+        SweetMessage result = instance.retrieve(id);
     }
 
 }
