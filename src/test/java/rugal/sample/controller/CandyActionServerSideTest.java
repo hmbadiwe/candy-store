@@ -30,7 +30,7 @@ import rugal.sample.core.entity.Student;
  *
  * @author Rugal Bernstein
  */
-public class StudentActionServerSideTest extends ControllerServerSideTestBase
+public class CandyActionServerSideTest extends ControllerServerSideTestBase
 {
 
     @Autowired

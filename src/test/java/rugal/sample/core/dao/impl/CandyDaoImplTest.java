@@ -11,13 +11,13 @@ import rugal.sample.core.entity.Student;
  *
  * @author rugal
  */
-public class StudentDaoImplTest extends JUnitSpringTestBase
+public class CandyDaoImplTest extends JUnitSpringTestBase
 {
 
     @Autowired
     private StudentDao studentDao;
 
-    public StudentDaoImplTest()
+    public CandyDaoImplTest()
     {
     }
 

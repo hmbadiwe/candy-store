@@ -26,7 +26,7 @@ import rugal.ControllerClientSideTestBase;
  *
  * @author Rugal Bernstein
  */
-public class StudentActionClientSideTest extends ControllerClientSideTestBase
+public class CandyActionClientSideTest extends ControllerClientSideTestBase
 {
 
     @Test

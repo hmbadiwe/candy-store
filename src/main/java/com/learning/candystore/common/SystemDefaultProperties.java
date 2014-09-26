@@ -1,4 +1,4 @@
-package rugal.sample.common;
+package com.learning.candystore.common;
 
 /**
  *

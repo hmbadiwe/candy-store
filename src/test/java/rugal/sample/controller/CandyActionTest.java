@@ -13,13 +13,13 @@ import rugal.sample.core.entity.Student;
  *
  * @author rugal
  */
-public class StudentActionTest extends ControllerClientSideTestBase
+public class CandyActionTest extends ControllerClientSideTestBase
 {
 
     @Autowired
     private StudentAction studentAction;
 
-    public StudentActionTest()
+    public CandyActionTest()
     {
     }
 

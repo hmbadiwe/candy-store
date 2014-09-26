@@ -26,13 +26,13 @@ import rugal.sample.core.service.StudentService;
  *
  * @author rugal
  */
-public class StudentServiceImplTest extends JUnitSpringTestBase
+public class CandyServiceImplTest extends JUnitSpringTestBase
 {
 
     @Autowired
     private StudentService studentService;
 
-    public StudentServiceImplTest()
+    public CandyServiceImplTest()
     {
     }
 

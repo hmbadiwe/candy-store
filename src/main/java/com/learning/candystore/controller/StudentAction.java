@@ -1,5 +1,9 @@
-package rugal.sample.controller;
+package com.learning.candystore.controller;
 
+import com.learning.candystore.common.CommonMessageContent;
+import com.learning.candystore.common.SweetMessage;
+import com.learning.candystore.core.entity.Candy;
+import com.learning.candystore.core.service.CandyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import rugal.sample.common.CommonMessageContent;
-import rugal.sample.common.Message;
-import rugal.sample.core.entity.Student;
-import rugal.sample.core.service.StudentService;
+
 
 /**
  *
@@ -28,7 +29,7 @@ public class StudentAction
     private static final Logger LOG = LoggerFactory.getLogger(StudentAction.class.getName());
 
     @Autowired
-    private StudentService studentService;
+    private CandyService candyService;
 
     /**
      * Persist a student bean into database.
@@ -38,13 +39,13 @@ public class StudentAction
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
-    public Message registerStudent(@RequestBody Student bean)
+    public SweetMessage registerStudent(@RequestBody Candy bean)
     {
-        studentService.save(bean);
+        candyService.save(bean);
         /*
          * Now we need to push message notify them
          */
-        return Message.successMessage(CommonMessageContent.SAVE_SUCCEED, bean);
+        return SweetMessage.successMessage(CommonMessageContent.SAVE_SUCCEED, bean);
     }
 
     /**
@@ -56,17 +57,17 @@ public class StudentAction
      */
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public Message updateStudentProfile(@PathVariable("id") Integer id, @RequestBody Student bean)
+    public SweetMessage updateStudentProfile(@PathVariable("id") Integer id, @RequestBody Candy bean)
     {
-        Student dbStudent = studentService.findById(id);
+        Candy dbStudent = candyService.findById(id);
         if (null != dbStudent)
         {
-            studentService.update(bean);
+            candyService.update(bean);
         }
         /*
          * Here we need to push message to client
          */
-        return Message.successMessage(CommonMessageContent.PROFILE_UPDATED, bean);
+        return SweetMessage.successMessage(CommonMessageContent.PROFILE_UPDATED, bean);
     }
 
     /**
@@ -77,14 +78,14 @@ public class StudentAction
      */
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Message deregister(@PathVariable("id") Integer id)
+    public SweetMessage deregister(@PathVariable("id") Integer id)
     {
-        Student bean = studentService.findById(id);
+        Candy bean = candyService.findById(id);
         if (null != bean)
         {
-            studentService.deleteById(id);
+            candyService.deleteById(id);
         }
-        return Message.successMessage(CommonMessageContent.STUDENT_DELETED, bean);
+        return SweetMessage.successMessage(CommonMessageContent.STUDENT_DELETED, bean);
     }
 
     /**
@@ -95,9 +96,9 @@ public class StudentAction
      */
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Message retrieve(@PathVariable("id") Integer id)
+    public SweetMessage retrieve(@PathVariable("id") Integer id)
     {
-        Student bean = studentService.findById(id);
-        return Message.successMessage(CommonMessageContent.GET_STUDENT, bean);
+        Candy bean = candyService.findById(id);
+        return SweetMessage.successMessage(CommonMessageContent.GET_STUDENT, bean);
     }
 }

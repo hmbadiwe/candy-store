@@ -1,4 +1,4 @@
-package rugal.sample.core.entity;
+package  com.learning.candystore.core.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
  * @author rugal
  */
 @Entity(name = "student")
-public class Student implements Serializable
+public class Candy implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
@@ -28,11 +28,11 @@ public class Student implements Serializable
     @Column
     private Integer age;
 
-    public Student()
+    public Candy()
     {
     }
 
-    public Student(Integer id)
+    public Candy(Integer id)
     {
         this.id = id;
     }
@@ -79,11 +79,11 @@ public class Student implements Serializable
     public boolean equals(Object object)
     {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student))
+        if (!(object instanceof Candy))
         {
             return false;
         }
-        Student other = (Student) object;
+        Candy other = (Candy) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
         {
             return false;

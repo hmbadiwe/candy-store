@@ -1,4 +1,4 @@
-package rugal.sample.common;
+package com.learning.candystore.common;
 
 /**
  *
@@ -6,17 +6,17 @@ package rugal.sample.common;
  *
  * @author Rugal Berntein
  */
-public class Message
+public class SweetMessage
 {
 
-    public static Message failMessage(String message)
+    public static SweetMessage failMessage(String message)
     {
-        return new Message(FAIL, message);
+        return new SweetMessage(FAIL, message);
     }
 
-    public static Message successMessage(String message, Object data)
+    public static SweetMessage successMessage(String message, Object data)
     {
-        return new Message(SUCCESS, message, data);
+        return new SweetMessage(SUCCESS, message, data);
     }
 
     public static final String SUCCESS = "SUCCESS";
@@ -29,18 +29,18 @@ public class Message
 
     private Object data = null;
 
-    private Message()
+    private SweetMessage()
     {
     }
 
-    private Message(String status, String message, Object data)
+    private SweetMessage(String status, String message, Object data)
     {
         this.status = status;
         this.message = message;
         this.data = data;
     }
 
-    private Message(String status, String message)
+    private SweetMessage(String status, String message)
     {
         this(status, message, null);
     }

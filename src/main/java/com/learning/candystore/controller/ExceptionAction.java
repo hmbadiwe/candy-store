@@ -1,7 +1,9 @@
-package rugal.sample.controller;
+package com.learning.candystore.controller;
 
 import java.text.MessageFormat;
 import javax.servlet.http.HttpServletRequest;
+
+import com.learning.candystore.common.SweetMessage;
 import org.hibernate.TypeMismatchException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
-import rugal.sample.common.Message;
+
 
 /**
  * This is the fundamental exception and HTTP error code mapping class.
@@ -82,10 +84,10 @@ public class ExceptionAction
             MethodArgumentNotValidException.class, MissingServletRequestParameterException.class,
             MissingServletRequestPartException.class, TypeMismatchException.class
         })
-    public Message badRequest(HttpServletRequest req, Exception e)
+    public SweetMessage badRequest(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(BAD_REQUEST);
+        return SweetMessage.failMessage(BAD_REQUEST);
     }
 
     /**
@@ -101,10 +103,10 @@ public class ExceptionAction
         {
             NoHandlerFoundException.class, NoSuchRequestHandlingMethodException.class
         })
-    public Message notFound(HttpServletRequest req, Exception e)
+    public SweetMessage notFound(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(NOT_FOUND);
+        return SweetMessage.failMessage(NOT_FOUND);
     }
 
     /**
@@ -119,10 +121,10 @@ public class ExceptionAction
         {
             HttpRequestMethodNotSupportedException.class
         })
-    public Message methodNotAllowed(HttpServletRequest req, Exception e)
+    public SweetMessage methodNotAllowed(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(METHOD_NOT_ALLOWED);
+        return SweetMessage.failMessage(METHOD_NOT_ALLOWED);
     }
 
     /**
@@ -137,10 +139,10 @@ public class ExceptionAction
         {
             HttpMediaTypeNotAcceptableException.class
         })
-    public Message notAcceptable(HttpServletRequest req, Exception e)
+    public SweetMessage notAcceptable(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(NOT_ACCEPTABLE);
+        return SweetMessage.failMessage(NOT_ACCEPTABLE);
     }
 
     /**
@@ -155,10 +157,10 @@ public class ExceptionAction
         {
             HttpMediaTypeNotSupportedException.class
         })
-    public Message unsupportedMediaType(HttpServletRequest req, Exception e)
+    public SweetMessage unsupportedMediaType(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(UNSUPPORTED_MEDIA_TYPE);
+        return SweetMessage.failMessage(UNSUPPORTED_MEDIA_TYPE);
     }
 
     /**
@@ -173,10 +175,10 @@ public class ExceptionAction
         {
             ConversionNotSupportedException.class, HttpMessageNotWritableException.class,
         })
-    public Message internalServerError(HttpServletRequest req, Exception e)
+    public SweetMessage internalServerError(HttpServletRequest req, Exception e)
     {
         LOG.error(e.getMessage(), e);
-        return Message.failMessage(INTERNAL_SERVER_ERROR);
+        return SweetMessage.failMessage(INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -191,9 +193,9 @@ public class ExceptionAction
         {
             Exception.class
         })
-    public Message otherException(HttpServletRequest req, Exception e)
+    public SweetMessage otherException(HttpServletRequest req, Exception e)
     {
         LOG.error("Other exception", e);
-        return Message.failMessage(e.getMessage());
+        return SweetMessage.failMessage(e.getMessage());
     }
 }
