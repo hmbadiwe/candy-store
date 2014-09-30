@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.learning.example/candy"
+           targetNamespace="http://com.learning.example/candy" elementFormDefault="qualified">
+
+  <!--  <xs:element name="getCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:candy"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>-->
+
+    <xs:complexType name="candy">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="price" type="xs:int"/>
+            <xs:element name="currency" type="tns:currency"></xs:element>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="lineItem">
+        <xs:sequence>
+            <xs:element name="item" type="tns:candy"></xs:element>
+            <xs:element name="quantity" type="xs:int"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="lineItems" type="tns:lineItem" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="PLN"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

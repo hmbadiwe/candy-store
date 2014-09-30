@@ -2,8 +2,6 @@ package config;
 
 import java.util.ArrayList;
 import java.util.List;
-import ml.rugal.sshcommon.springmvc.method.annotation.FormModelMethodArgumentResolver;
-import ml.rugal.sshcommon.springmvc.method.annotation.RequestJsonParamMethodArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,17 +18,12 @@ import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-/**
- * Java based Web context configuration class.
- *
- * @author Rugal Bernstein
- * @since 0.2
- */
+
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages =
 {
-        "learning.candystore.controller"
+        "com.learning.candystore.controller"
 })
 public class WebApplicationContext extends WebMvcConfigurerAdapter
 {
@@ -44,8 +37,8 @@ public class WebApplicationContext extends WebMvcConfigurerAdapter
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers)
     {
-        argumentResolvers.add(new FormModelMethodArgumentResolver());
-        argumentResolvers.add(new RequestJsonParamMethodArgumentResolver());
+        /*argumentResolvers.add(new FormModelMethodArgumentResolver());
+        argumentResolvers.add(new RequestJsonParamMethodArgumentResolver());*/
     }
 
     @Override

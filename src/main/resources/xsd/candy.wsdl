@@ -1,0 +1,36 @@
+<definitions xmlns="http://www.w3.org/ns/wsdl"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://com.learning.example/candy"
+                  targetNamespace="http://com.learning.example/candy">
+
+
+    <types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://com.learning.example/candy"
+            schemaLocation="candy.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="HolidayRequest">
+        <part element="tns:" name="HolidayRequest"/>
+    </message>
+    <portType name="HumanResource">
+        <operation name="Holiday">
+            <input message="tns:HolidayRequest" name="HolidayRequest"/>
+        </operation>
+    </portType>
+    <binding name="HumanResourceBinding" type="tns:HumanResource">
+        <soap:binding style="document"
+        transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Holiday">
+            <soap:operation soapAction="http://mycompany.com/RequestHoliday"/>
+            <input name="HolidayRequest">
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+    </binding>
+    <service name="CandyOrderService">
+        <port binding="tns:HumanResourceBinding" name="HumanResourcePort">
+            <soap:address location="http://localhost:8080/holidayService/"/>
+        </port>
+    </service>
+</definitions>

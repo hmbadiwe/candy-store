@@ -13,7 +13,7 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>config.ApplicationContext</param-value>
+        <param-value>classpath:*-context.xml</param-value>
     </context-param>
 
     <session-config>
@@ -48,7 +48,23 @@
     <!-- ====================================== -->
     <!-- handler/Servlet -->
     <servlet>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>rest</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>config.WebApplicationContext</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet>
+        <servlet-name>ws</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextClass</param-name>
@@ -64,8 +80,12 @@
         <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>rest</servlet-name>
+        <url-pattern>/rest</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ws</servlet-name>
+        <url-pattern>/ws</url-pattern>
     </servlet-mapping>
     <!-- enable hidden HTTP method -->
     <filter>
@@ -74,7 +94,7 @@
     </filter>  
     <filter-mapping>
         <filter-name>HiddenHttpMethodFilter</filter-name>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>rest</servlet-name>
     </filter-mapping>
     <!-- encoding -->
     <filter>
