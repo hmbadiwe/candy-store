@@ -1,0 +1,5 @@
+#Ignores the Intellj idea folder 
+.idea/ 
+
+#Ignores the .iml files created by Intellj
+/*.iml
